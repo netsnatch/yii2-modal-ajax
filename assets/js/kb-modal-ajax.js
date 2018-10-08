@@ -71,6 +71,10 @@
         // Find form and inject it
         var form = jQuery(html).filter('form');
 
+        if (!form.length) {
+            form = jQuery(html).find('form');
+        }
+        
         // Remove existing forms
         if (jQuery(this.element).find('form').length > 0) {
             jQuery(this.element).find('form').off().yiiActiveForm('destroy').remove();
